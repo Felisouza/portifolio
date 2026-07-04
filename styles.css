@@ -1,0 +1,669 @@
+/* Reset e Variáveis */
+:root {
+    --primary-color: #6c63ff;
+    --secondary-color: #2d2d2d;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navegação */
+.navbar {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--secondary-color);
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #8b83ff 100%);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding-top: 150px;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: slideInDown 1s ease;
+}
+
+.highlight {
+    color: #ffd700;
+}
+
+.typewriter {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* Botões */
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-btn:hover {
+    background: #5a52e0;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.secondary-btn:hover {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+.small-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    color: #ffd700;
+}
+
+/* Seções */
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--secondary-color);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Sobre */
+.about {
+    background: var(--light-bg);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Aumentei o espaço do texto */
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image img {
+    width: 280px;  /* Tamanho reduzido */
+    height: 280px; /* Altura igual à largura para ficar circular */
+    object-fit: cover; /* Mantém a proporção da foto */
+    border-radius: 50%; /* Borda totalmente redonda */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 5px solid var(--white);
+    transition: var(--transition);
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
+    border-color: #6c63ff;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info-item i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+/* Tema para skills de dados */
+.skill-card .fa-python {
+    color: #3776AB; /* Azul Python */
+}
+
+.skill-card .fa-database {
+    color: #336791; /* Azul SQL */
+}
+
+.skill-card .fa-bolt {
+    color: #E25A1C; /* Laranja PySpark */
+}
+
+.skill-card .fa-magnifying-glass-chart {
+    color: #F2C811; /* Amarelo Power BI */
+}
+
+.skill-card .fa-aws {
+    color: #FF9900; /* Laranja AWS */
+}
+
+.skill-card .fa-brain {
+    color: #6B2737 /* Verde análise */
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.skill-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    margin-bottom: 1rem;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 10px;
+    transition: width 1s ease;
+    animation: fillBar 1.5s ease;
+}
+/* Ícone SVG do Databricks */
+.skill-card .skill-icon-svg {
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.skill-card:hover .skill-icon-svg {
+    transform: scale(1.1);
+}
+
+
+/* Projetos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.project-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.project-info p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.project-tech {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.project-tech span {
+    background: var(--light-bg);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Contato */
+/* Ícones Sociais na Seção Sobre */
+.about-text p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-icon-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 20px;
+    background: var(--white);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.social-icon-link i {
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-icon-link span {
+    font-size: 0.9rem;
+}
+
+/* Cores específicas para cada rede social */
+.social-icon-link .fa-linkedin {
+    color: #0077B5;
+}
+
+.social-icon-link .fa-envelope {
+    color: #EA4335;
+}
+
+.social-icon-link .fa-github {
+    color: #333;
+}
+
+/* Hover effects */
+.social-icon-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon-link:hover .fa-linkedin,
+.social-icon-link:hover .fa-envelope,
+.social-icon-link:hover .fa-github {
+    transform: scale(1.2);
+}
+
+.social-icon-link:nth-child(1):hover {
+    border-color: #0077B5;
+    color: #0077B5;
+}
+
+.social-icon-link:nth-child(2):hover {
+    border-color: #EA4335;
+    color: #EA4335;
+}
+
+.social-icon-link:nth-child(3):hover {
+    border-color: #333;
+    color: #333;
+}
+
+/* Cor do WhatsApp */
+.social-icon-link .fa-whatsapp {
+    color: #25D366;
+}
+
+/* Hover do WhatsApp */
+.social-icon-link:nth-child(4):hover {
+    border-color: #25D366;
+    color: #25D366;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .about-social {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .social-icon-link {
+        padding: 8px 16px;
+    }
+    
+    .social-icon-link span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.footer-social a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    color: var(--primary-color);
+}
+
+/* Animações */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
+
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    /* Melhorias para a seção de contato */
+.contact-item {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: default;
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.contact-item i {
+    font-size: 1.8rem;
+    color: #722F37; /* Vinho para ícones de contato */
+    min-width: 40px;
+}
+
+.contact-item h3 {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Links clicáveis nos contatos */
+.contact-item a {
+    color: #666;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-item a:hover {
+    color: #722F37; /* Vinho no hover */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .contact-item:hover {
+        transform: translateX(5px);
+    }
+}
+}
